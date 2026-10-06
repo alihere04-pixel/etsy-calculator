@@ -1,0 +1,75 @@
+{
+  "US": {
+    "listing_fee": 0.20,
+    "transaction_fee_percent": 6.5,
+    "payment_processing_percent": 3.0,
+    "payment_processing_fixed": 0.25,
+    "currency": "USD",
+    "offsite_ads_percent": 15,
+    "regulatory_fee_percent": 0,
+    "currency_conversion_percent": 2.5,
+    "last_updated": "2026-10-06",
+    "source_name": "Etsy Fees & Payments Policy"
+  },
+  "UK": {
+    "listing_fee": 0.20,
+    "transaction_fee_percent": 6.5,
+    "payment_processing_percent": 4.0,
+    "payment_processing_fixed": 0.20,
+    "currency": "GBP",
+    "offsite_ads_percent": 15,
+    "regulatory_fee_percent": 0.32,
+    "currency_conversion_percent": 2.5,
+    "last_updated": "2026-10-06",
+    "source_name": "Etsy Fees & Payments Policy + Etsy Help Center"
+  },
+  "EU": {
+    "listing_fee": 0.20,
+    "transaction_fee_percent": 6.5,
+    "payment_processing_percent": 4.0,
+    "payment_processing_fixed": 0.30,
+    "currency": "EUR",
+    "offsite_ads_percent": 15,
+    "regulatory_fee_percent": "UNVERIFIED",
+    "regulatory_fee_note": "Varies by EU country. Default shown is approximate. User should verify for their country.",
+    "currency_conversion_percent": 2.5,
+    "last_updated": "2026-10-06",
+    "source_name": "Etsy Fees & Payments Policy + Etsy Help Center"
+  },
+  "CA": {
+    "listing_fee": 0.20,
+    "transaction_fee_percent": 6.5,
+    "payment_processing_percent": 3.0,
+    "payment_processing_fixed": 0.25,
+    "currency": "CAD",
+    "offsite_ads_percent": 15,
+    "regulatory_fee_percent": 0.50,
+    "currency_conversion_percent": 2.5,
+    "last_updated": "2026-10-06",
+    "source_name": "Etsy Fees & Payments Policy + Etsy Help Center"
+  },
+  "AU": {
+    "listing_fee": 0.20,
+    "transaction_fee_percent": 6.5,
+    "payment_processing_percent": 3.0,
+    "payment_processing_fixed": 0.25,
+    "currency": "AUD",
+    "offsite_ads_percent": 15,
+    "regulatory_fee_percent": 0,
+    "currency_conversion_percent": 2.5,
+    "last_updated": "2026-10-06",
+    "source_name": "Etsy Fees & Payments Policy + Etsy Help Center"
+  },
+  "IN": {
+    "listing_fee": 0.20,
+    "transaction_fee_percent": 6.5,
+    "payment_processing_percent": 5.0,
+    "payment_processing_fixed": 25.0,
+    "currency": "INR",
+    "offsite_ads_percent": 15,
+    "regulatory_fee_percent": 0.05,
+    "currency_conversion_percent": 2.5,
+    "last_updated": "2026-10-06",
+    "source_name": "Etsy Fees & Payments Policy + Etsy Help Center"
+  }
+}
