@@ -3,7 +3,7 @@ export const siteConfig = {
   toolName: "Etsy Fee Calculator",
   domain: "fynza.store",
   // URL prefix for this tool on fynza.store.
-  // Note: Next.js basePath is NOT used. Routes live under /etsy/* directly.
+  // next.config.ts sets basePath: "/etsy", so routes live under /etsy/*.
   urlPrefix: "/etsy",
   contactEmail: "hello@fynza.store",
 } as const;

@@ -1,4 +1,4 @@
-import type { Result } from "@/lib/calculation/engine";
+import { currencySymbol, type Result } from "@/lib/calculation/engine";
 
 interface FeeBreakdownProps {
   result: Result | null;
@@ -6,6 +6,7 @@ interface FeeBreakdownProps {
 
 export default function FeeBreakdown({ result }: FeeBreakdownProps) {
   if (!result) return null;
+  const sym = currencySymbol(result.currency);
 
   const rows: { label: string; amount: number }[] = [
     { label: "Listing fee", amount: result.listingFee },
@@ -24,12 +25,12 @@ export default function FeeBreakdown({ result }: FeeBreakdownProps) {
           {rows.map((row) => (
             <tr key={row.label} className="border-b border-gray-100">
               <td className="py-2 text-gray-600">{row.label}</td>
-              <td className="py-2 text-right font-medium text-gray-900">${row.amount.toFixed(2)}</td>
+              <td className="py-2 text-right font-medium text-gray-900">{sym}{row.amount.toFixed(2)}</td>
             </tr>
           ))}
           <tr className="bg-orange-50">
             <td className="py-2 font-semibold text-gray-900">Total fees</td>
-            <td className="py-2 text-right font-bold text-orange-700">${result.totalFees.toFixed(2)}</td>
+            <td className="py-2 text-right font-bold text-orange-700">{sym}{result.totalFees.toFixed(2)}</td>
           </tr>
         </tbody>
       </table>

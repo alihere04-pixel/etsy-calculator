@@ -1,4 +1,4 @@
-import type { Result } from "@/lib/calculation/engine";
+import { currencySymbol, type Result } from "@/lib/calculation/engine";
 
 interface ResultCardProps {
   result: Result | null;
@@ -6,6 +6,7 @@ interface ResultCardProps {
 
 export default function ResultCard({ result }: ResultCardProps) {
   if (!result) return null;
+  const sym = currencySymbol(result.currency);
 
   return (
     <div className="w-full max-w-lg rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
@@ -20,7 +21,7 @@ export default function ResultCard({ result }: ResultCardProps) {
       <div className="mt-4 grid grid-cols-2 gap-4">
         <div className="rounded-lg bg-orange-50 p-4">
           <p className="text-sm text-gray-600">Net Profit</p>
-          <p className="text-3xl font-bold text-orange-700">${result.netProfit.toFixed(2)}</p>
+          <p className="text-3xl font-bold text-orange-700">{sym}{result.netProfit.toFixed(2)}</p>
         </div>
         <div className="rounded-lg bg-orange-50 p-4">
           <p className="text-sm text-gray-600">Profit Margin</p>
@@ -28,7 +29,7 @@ export default function ResultCard({ result }: ResultCardProps) {
         </div>
         <div className="rounded-lg bg-gray-50 p-4">
           <p className="text-sm text-gray-600">Break-even Price</p>
-          <p className="text-xl font-bold text-gray-900">${result.breakEvenPrice.toFixed(2)}</p>
+          <p className="text-xl font-bold text-gray-900">{sym}{result.breakEvenPrice.toFixed(2)}</p>
         </div>
         <div className="rounded-lg bg-gray-50 p-4">
           <p className="text-sm text-gray-600">Effective Fee Rate</p>

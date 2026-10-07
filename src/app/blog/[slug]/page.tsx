@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
+import { blogSlugs } from "@/content/blog/slugs";
 import MdxPost from "@/components/MdxPost";
 
 const BLOG_DIR = path.join(process.cwd(), "src", "content", "blog");
@@ -24,10 +25,7 @@ function getFrontmatter(slug: string) {
 }
 
 export function generateStaticParams() {
-  return fs
-    .readdirSync(BLOG_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => ({ slug: f.replace(/\.mdx$/, "") }));
+  return blogSlugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -55,7 +53,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const fm = getFrontmatter(slug);
-  if (!fm) notFound();
+  if (!fm || !blogSlugs.includes(slug)) notFound();
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-10 space-y-6">

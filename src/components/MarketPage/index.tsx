@@ -1,7 +1,12 @@
 "use client";
 
+import Link from "next/link";
+import { useState } from "react";
 import rates from "@/data/rates/etsy.json";
 import Calculator from "@/components/Calculator";
+import ResultCard from "@/components/ResultCard";
+import FeeBreakdown from "@/components/FeeBreakdown";
+import { currencySymbol, type Result } from "@/lib/calculation/engine";
 
 const marketMeta: Record<
   string,
@@ -63,6 +68,7 @@ export default function MarketPage({
   market: "US" | "UK" | "EU" | "CA" | "AU" | "IN";
 }) {
   const meta = marketMeta[market];
+  const [result, setResult] = useState<Result | null>(null);
   const r = rates[market as keyof typeof rates] as (typeof rates)["US"];
   const regulatoryDisplay =
     typeof r.regulatory_fee_percent === "number"
@@ -79,9 +85,14 @@ export default function MarketPage({
         {market} seller. Rates below match the official Etsy Fees &amp; Payments
         Policy.
       </p>
+      <p className="text-xs text-gray-500">
+        Rates last updated: {r.last_updated}. Source: {r.source_name}.
+      </p>
 
       <section>
-        <Calculator onResult={() => {}} />
+        <Calculator onResult={setResult} />
+        <ResultCard result={result} />
+        <FeeBreakdown result={result} />
       </section>
 
       <section>
@@ -90,7 +101,7 @@ export default function MarketPage({
           <tbody>
             <tr className="border-b"><td className="py-2">Listing fee</td><td className="text-right">${r.listing_fee}</td></tr>
             <tr className="border-b"><td className="py-2">Transaction fee</td><td className="text-right">{r.transaction_fee_percent}%</td></tr>
-            <tr className="border-b"><td className="py-2">Payment processing</td><td className="text-right">{r.payment_processing_percent}% + {r.currency === "GBP" ? "£" : r.currency === "EUR" ? "€" : r.currency === "INR" ? "₹" : "$"}{r.payment_processing_fixed}</td></tr>
+            <tr className="border-b"><td className="py-2">Payment processing</td><td className="text-right">{r.payment_processing_percent}% + {currencySymbol(r.currency)}{r.payment_processing_fixed}</td></tr>
             <tr className="border-b"><td className="py-2">Regulatory operating fee</td><td className="text-right">{regulatoryDisplay}</td></tr>
             <tr className="border-b"><td className="py-2">Offsite Ads</td><td className="text-right">{r.offsite_ads_percent}%</td></tr>
           </tbody>
@@ -116,12 +127,12 @@ export default function MarketPage({
         Source: Etsy Fees &amp; Payments Policy; Etsy Help Center.
       </p>
 
-      <a
+      <Link
         href="/calculator"
         className="inline-block rounded-lg bg-orange-600 px-6 py-3 font-semibold text-white hover:bg-orange-700"
       >
         Open Full Calculator
-      </a>
+      </Link>
 
       <script
         type="application/ld+json"

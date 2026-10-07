@@ -25,6 +25,7 @@ export interface Result {
   profitMargin: number;
   breakEvenPrice: number;
   effectiveFeeRate: number;
+  currency: string;
   warnings: string[];
 }
 
@@ -32,6 +33,19 @@ export interface Result {
  * Calculates profit margin as a percentage.
  * Returns 0 if netRevenue is zero or negative.
  */
+const SYMBOLS: Record<string, string> = {
+  USD: "$",
+  CAD: "C$",
+  AUD: "A$",
+  GBP: "£",
+  EUR: "€",
+  INR: "₹",
+};
+
+export function currencySymbol(code: string): string {
+  return SYMBOLS[code] ?? "$";
+}
+
 export function calculateProfitMargin(netProfit: number, netRevenue: number): number {
   if (netRevenue <= 0) return 0;
   return (netProfit / netRevenue) * 100;
@@ -114,8 +128,9 @@ export function calculateFees(input: Input): Result {
     netRevenue,
     netProfit,
     profitMargin,
-    breakEvenPrice,
+     breakEvenPrice,
     effectiveFeeRate,
+    currency: rates.currency as string,
     warnings,
   };
 }

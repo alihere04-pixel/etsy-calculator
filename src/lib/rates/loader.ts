@@ -1,7 +1,11 @@
 import ratesData from "../../data/rates/etsy.json";
-import type { CountryRates, RatesData } from "./schema";
+import { validateRates, type CountryRates, type RatesData } from "./schema";
 
 const data = ratesData as RatesData;
+
+if (!validateRates(data)) {
+  throw new Error("Invalid rates data in /src/data/rates/etsy.json");
+}
 
 export function getRates(country: string): CountryRates {
   const rates = data[country] as CountryRates | undefined;

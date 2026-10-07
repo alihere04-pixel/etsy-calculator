@@ -1,25 +1,20 @@
-"use client";
+import type { Metadata } from "next";
+import CalculatorSection from "@/components/CalculatorSection";
 
-import { useState } from "react";
-import Calculator from "@/components/Calculator";
-import ResultCard from "@/components/ResultCard";
-import FeeBreakdown from "@/components/FeeBreakdown";
-import type { Result } from "@/lib/calculation/engine";
+export const metadata: Metadata = {
+  title: "Etsy Fee & Profit Calculator — Fynza",
+  description:
+    "Free Etsy fee and profit calculator: listing, transaction, processing, regulatory and Offsite Ads fees, net profit, margin and break-even price.",
+  alternates: { canonical: "https://fynza.store/etsy/calculator" },
+  openGraph: {
+    title: "Etsy Fee & Profit Calculator — Fynza",
+    description:
+      "Free Etsy fee and profit calculator: listing, transaction, processing, regulatory and Offsite Ads fees, net profit, margin and break-even price.",
+    url: "https://fynza.store/etsy/calculator",
+    type: "website",
+  },
+};
 
 export default function CalculatorPage() {
-  const [result, setResult] = useState<Result | null>(null);
-
-  return (
-    <main className="flex min-h-screen flex-col items-center gap-6 bg-gray-50 px-4 py-10">
-      <h1 className="text-3xl font-bold text-gray-900">Etsy Fee &amp; Profit Calculator</h1>
-      <p className="max-w-xl text-center text-gray-600">
-        Enter your item details below to instantly see Etsy fees, net profit,
-        margin, and break-even price.
-      </p>
-      <Calculator onResult={setResult} />
-      <ResultCard result={result} />
-      <FeeBreakdown result={result} />
-    </main>
-  );
+  return <CalculatorSection />;
 }
-
