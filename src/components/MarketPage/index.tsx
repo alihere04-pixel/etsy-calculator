@@ -114,7 +114,7 @@ export default function MarketPage({
           <tbody>
             <tr className="border-b"><td className="py-2">Listing fee</td><td className="text-right">{currencySymbol(r.currency)}{r.listing_fee.toFixed(2)}</td></tr>
             <tr className="border-b"><td className="py-2">Transaction fee</td><td className="text-right">{r.transaction_fee_percent}%</td></tr>
-            <tr className="border-b"><td className="py-2">Payment processing</td><td className="text-right">{r.payment_processing_percent}% + {currencySymbol(r.currency)}{r.payment_processing_fixed}</td></tr>
+            <tr className="border-b"><td className="py-2">Payment processing</td><td className="text-right">{r.payment_processing_percent}% + {currencySymbol(r.currency)}{Number.isInteger(r.payment_processing_fixed) ? r.payment_processing_fixed : r.payment_processing_fixed.toFixed(2)}</td></tr>
             <tr className="border-b"><td className="py-2">Regulatory operating fee</td><td className="text-right">{regulatoryDisplay}</td></tr>
             <tr className="border-b"><td className="py-2">Offsite Ads</td><td className="text-right">{r.offsite_ads_percent}%</td></tr>
           </tbody>
