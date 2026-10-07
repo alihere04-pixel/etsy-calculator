@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { createMonitoringConfig, getAnalyticsConfig } from '@/lib/monitoring/config';
 
 import { useAnalyticsConsent } from './useAnalyticsConsent';
@@ -35,11 +35,11 @@ export function ConsentBanner() {
   const { consent, decide } = useAnalyticsConsent();
 
   // Track client-side mount to avoid SSR mismatch.
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   if (!analytics.enabled) return null;
   // Only show for fresh visitors who have not made a decision.
