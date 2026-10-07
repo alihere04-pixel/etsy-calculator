@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${siteConfig.domain}`),
   title: "Fynza — Etsy Fee Calculator",
   description: "Free Etsy fee and profit calculator.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
