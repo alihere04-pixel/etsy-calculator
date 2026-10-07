@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Etsy Fee Calculator for India Sellers (2026)",
     description: "Calculate your Etsy fees, net profit, and break-even price as an Indian seller in 2026.",
   },

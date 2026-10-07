@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: "article",
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title: fm.title,
       description: fm.description,
     },

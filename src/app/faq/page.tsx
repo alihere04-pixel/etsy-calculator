@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Etsy Fees FAQ (2026)",
     description: "Common questions about Etsy fees, transaction fees, payment processing, regulatory fees and Offsite Ads.",
   },

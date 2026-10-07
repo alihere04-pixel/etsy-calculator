@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Etsy Fee & Profit Calculator",
     description: "Free Etsy fee and profit calculator for sellers in the US, UK, EU, CA, AU and IN.",
   },

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Etsy Fee Calculator for UK Sellers (2026)",
     description: "Calculate Etsy fees, net profit and break-even price for UK sellers in 2026.",
   },
