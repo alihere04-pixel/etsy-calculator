@@ -9,29 +9,32 @@ interface CalculatorProps {
 
 export default function Calculator({ onResult }: CalculatorProps) {
   const [productPrice, setProductPrice] = useState("");
-  const [shippingCharged, setShippingCharged] = useState("0");
-  const [cogs, setCogs] = useState("0");
-  const [shippingCostPaid, setShippingCostPaid] = useState("0");
-  const [quantity, setQuantity] = useState("1");
+  const [shippingCharged, setShippingCharged] = useState("");
+  const [cogs, setCogs] = useState("");
+  const [shippingCostPaid, setShippingCostPaid] = useState("");
+  const [quantity, setQuantity] = useState("");
   const [country, setCountry] = useState<Input["country"]>("US");
   const [offsiteAds, setOffsiteAds] = useState<Input["offsiteAds"]>("off");
   const [taxInclusive, setTaxInclusive] = useState(false);
-  const [giftWrap, setGiftWrap] = useState("0");
+  const [giftWrap, setGiftWrap] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
+    // Empty fields become NaN so the engine reports "Please enter valid numbers"
+    // instead of silently treating them as 0.
+    const num = (raw: string): number => (raw.trim() === "" ? NaN : Number(raw));
     const input: Input = {
-      productPrice: Number(productPrice),
-      shippingCharged: Number(shippingCharged),
-      cogs: Number(cogs),
-      shippingCostPaid: Number(shippingCostPaid),
-      quantity: Number(quantity),
+      productPrice: num(productPrice),
+      shippingCharged: num(shippingCharged),
+      cogs: num(cogs),
+      shippingCostPaid: num(shippingCostPaid),
+      quantity: num(quantity),
       country,
       offsiteAds,
       taxInclusive,
-      giftWrap: Number(giftWrap),
+      giftWrap: num(giftWrap),
     };
     try {
       const result = calculateFees(input);
@@ -46,23 +49,23 @@ export default function Calculator({ onResult }: CalculatorProps) {
     <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <div>
         <label className="block text-sm font-medium text-gray-700">Product price</label>
-        <input type="number" step="0.01" min="0" value={productPrice} onChange={(e) => setProductPrice(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" required />
+        <input type="number" step="0.01" min="0" value={productPrice} placeholder="0.00" onChange={(e) => setProductPrice(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" required />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Shipping charged to buyer</label>
-        <input type="number" step="0.01" min="0" value={shippingCharged} onChange={(e) => setShippingCharged(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
+        <input type="number" step="0.01" min="0" value={shippingCharged} placeholder="0.00" onChange={(e) => setShippingCharged(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">COGS (cost of goods)</label>
-        <input type="number" step="0.01" min="0" value={cogs} onChange={(e) => setCogs(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
+        <input type="number" step="0.01" min="0" value={cogs} placeholder="0.00" onChange={(e) => setCogs(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Shipping cost paid by seller</label>
-        <input type="number" step="0.01" min="0" value={shippingCostPaid} onChange={(e) => setShippingCostPaid(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
+        <input type="number" step="0.01" min="0" value={shippingCostPaid} placeholder="0.00" onChange={(e) => setShippingCostPaid(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Quantity</label>
-        <input type="number" min="1" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" required />
+        <input type="number" min="1" value={quantity} placeholder="1" onChange={(e) => setQuantity(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" required />
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Country</label>
@@ -89,7 +92,7 @@ export default function Calculator({ onResult }: CalculatorProps) {
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">Gift wrap (optional)</label>
-        <input type="number" step="0.01" min="0" value={giftWrap} onChange={(e) => setGiftWrap(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
+        <input type="number" step="0.01" min="0" value={giftWrap} placeholder="0.00" onChange={(e) => setGiftWrap(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}
       <button type="submit" className="w-full rounded-lg bg-orange-600 px-6 py-3 font-semibold text-white hover:bg-orange-700">
