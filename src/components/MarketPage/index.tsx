@@ -10,10 +10,12 @@ import { currencySymbol, type Result } from "@/lib/calculation/engine";
 
 const marketMeta: Record<
   string,
-  { country: string; faq: { q: string; a: string }[] }
+  { country: string; name: string; seller: string; faq: { q: string; a: string }[] }
 > = {
   US: {
     country: "US",
+    name: "US",
+    seller: "a US seller",
     faq: [
       { q: "What payment processing fee do US sellers pay?", a: "US sellers pay 3% + $0.25 per order." },
       { q: "Is there a regulatory operating fee in the US?", a: "No. The regulatory operating fee does not apply to US sellers." },
@@ -22,6 +24,8 @@ const marketMeta: Record<
   },
   UK: {
     country: "UK",
+    name: "UK",
+    seller: "a UK seller",
     faq: [
       { q: "What payment processing fee do UK sellers pay?", a: "UK sellers pay 4% + £0.20 per order." },
       { q: "What is the UK regulatory operating fee?", a: "It is 0.32% of the sale total." },
@@ -30,6 +34,8 @@ const marketMeta: Record<
   },
   EU: {
     country: "EU",
+    name: "EU",
+    seller: "a EU seller",
     faq: [
       { q: "What payment processing fee do EU sellers pay?", a: "EU sellers pay 4% + €0.30 per order." },
       { q: "Why is the EU regulatory fee marked UNVERIFIED?", a: "Because it varies by country. Verify your country's rate." },
@@ -38,6 +44,8 @@ const marketMeta: Record<
   },
   CA: {
     country: "CA",
+    name: "Canada",
+    seller: "a Canadian seller",
     faq: [
       { q: "What payment processing fee do Canadian sellers pay?", a: "Canadian sellers pay 3% + $0.25 CAD per order." },
       { q: "What is the Canada regulatory operating fee?", a: "It is 0.50% of the sale total." },
@@ -46,6 +54,8 @@ const marketMeta: Record<
   },
   AU: {
     country: "AU",
+    name: "Australia",
+    seller: "an Australian seller",
     faq: [
       { q: "What payment processing fee do Australian sellers pay?", a: "Australian sellers pay 3% + $0.25 AUD per order." },
       { q: "Is there a regulatory operating fee in Australia?", a: "No. The regulatory operating fee does not apply to AU sellers." },
@@ -54,6 +64,8 @@ const marketMeta: Record<
   },
   IN: {
     country: "IN",
+    name: "India",
+    seller: "an Indian seller",
     faq: [
       { q: "What payment processing fee do Indian sellers pay?", a: "Indian sellers pay 5% + ₹25 per order." },
       { q: "What is the India regulatory operating fee?", a: "It is 0.05% of the sale total." },
@@ -78,11 +90,11 @@ export default function MarketPage({
   return (
     <main className="mx-auto max-w-3xl px-4 py-10 space-y-8">
       <h1 className="text-3xl font-bold text-gray-900">
-        Etsy Fee Calculator for {market} Sellers (2026)
+        Etsy Fee Calculator for {meta.name} Sellers (2026)
       </h1>
       <p className="text-gray-600">
-        Calculate your Etsy fees, net profit, and break-even price as a{" "}
-        {market} seller. Rates below match the official Etsy Fees &amp; Payments
+        Calculate your Etsy fees, net profit, and break-even price as{" "}
+        {meta.seller}. Rates below match the official Etsy Fees &amp; Payments
         Policy.
       </p>
       <p className="text-xs text-gray-500">
