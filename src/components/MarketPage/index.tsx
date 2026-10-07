@@ -85,7 +85,7 @@ export default function MarketPage({
   const r = rates[market as keyof typeof rates] as (typeof rates)["US"];
   const regulatoryDisplay =
     typeof r.regulatory_fee_percent === "number"
-      ? `${r.regulatory_fee_percent}%`
+      ? `${r.regulatory_fee_percent.toFixed(2)}%`
       : "UNVERIFIED";
 
   return (
