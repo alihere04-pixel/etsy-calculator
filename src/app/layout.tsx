@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import { siteConfig } from "@/lib/site/config";
+import { AnalyticsGate } from "@/components/analytics/AnalyticsGate";
+import { ConsentBanner } from "@/components/analytics/ConsentBanner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <ConsentBanner />
         <header className="border-b border-gray-200 bg-white px-4 py-4">
           <Link href="/" className="text-xl font-bold text-orange-600">Fynza</Link>
           <span className="ml-2 text-gray-600">&mdash; Etsy Fee Calculator</span>
@@ -44,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <p className="mt-2">Contact: hello@fynza.store</p>
           <p className="mt-1">&copy; 2026 Fynza. All rights reserved.</p>
         </footer>
+        <AnalyticsGate />
       </body>
     </html>
   );
