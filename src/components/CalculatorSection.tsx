@@ -4,6 +4,7 @@ import { useState } from "react";
 import Calculator from "@/components/Calculator";
 import ResultCard from "@/components/ResultCard";
 import FeeBreakdown from "@/components/FeeBreakdown";
+import { AdSense } from "@/components/Ads/AdSense";
 import type { Result } from "@/lib/calculation/engine";
 
 export default function CalculatorSection() {
@@ -19,6 +20,7 @@ export default function CalculatorSection() {
       <Calculator onResult={setResult} />
       <ResultCard result={result} />
       <FeeBreakdown result={result} />
+      <AdSense slot="etsy-calculator-result" format="rectangle" />
     </main>
   );
 }

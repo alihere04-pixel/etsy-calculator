@@ -5,6 +5,7 @@ import Link from "next/link";
 import Calculator from "@/components/Calculator";
 import ResultCard from "@/components/ResultCard";
 import FeeBreakdown from "@/components/FeeBreakdown";
+import { AdSense } from "@/components/Ads/AdSense";
 import type { Result } from "@/lib/calculation/engine";
 
 export default function EtsyLanding() {
@@ -19,9 +20,13 @@ export default function EtsyLanding() {
         fees, plus net profit and break-even price.
       </p>
 
+      <AdSense slot="etsy-home-top" format="auto" />
+
       <Calculator onResult={setResult} />
       <ResultCard result={result} />
       <FeeBreakdown result={result} />
+
+      <AdSense slot="etsy-home-sidebar" format="rectangle" />
 
       <nav>
         <h2 className="text-xl font-semibold text-gray-900">Calculate by Country</h2>

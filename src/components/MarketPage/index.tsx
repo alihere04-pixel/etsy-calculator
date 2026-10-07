@@ -6,6 +6,7 @@ import rates from "@/data/rates/etsy.json";
 import Calculator from "@/components/Calculator";
 import ResultCard from "@/components/ResultCard";
 import FeeBreakdown from "@/components/FeeBreakdown";
+import { AdSense } from "@/components/Ads/AdSense";
 import { currencySymbol, type Result } from "@/lib/calculation/engine";
 
 const marketMeta: Record<
@@ -121,6 +122,7 @@ export default function MarketPage({
         {typeof r.regulatory_fee_percent !== "number" && "regulatory_fee_note" in r && r.regulatory_fee_note ? (
           <p className="mt-2 text-xs text-gray-500">{r.regulatory_fee_note as string}</p>
         ) : null}
+        <AdSense slot="etsy-market-fee-table" format="horizontal" />
       </section>
 
       <section>

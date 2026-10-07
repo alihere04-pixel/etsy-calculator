@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AdSense } from "@/components/Ads/AdSense";
 
 export const metadata: Metadata = {
   title: "Etsy Fees FAQ (2026)",
@@ -48,6 +49,7 @@ export default function FaqPage() {
       <Link href="/calculator" className="inline-block rounded-lg bg-orange-600 px-6 py-3 font-semibold text-white hover:bg-orange-700">
         Open Calculator
       </Link>
+      <AdSense slot="etsy-faq-bottom" format="horizontal" />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

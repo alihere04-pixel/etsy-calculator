@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { siteConfig } from "@/lib/site/config";
 import { AnalyticsGate } from "@/components/analytics/AnalyticsGate";
 import { ConsentBanner } from "@/components/analytics/ConsentBanner";
+import { AdSenseScript } from "@/components/Ads/AdSense";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <ConsentBanner />
+        <AdSenseScript />
         <header className="border-b border-gray-200 bg-white px-4 py-4">
           <Link href="/" className="text-xl font-bold text-orange-600">Fynza</Link>
           <span className="ml-2 text-gray-600">&mdash; Etsy Fee Calculator</span>
