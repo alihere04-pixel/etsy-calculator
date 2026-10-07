@@ -37,7 +37,7 @@ export default function TermsPage() {
           }),
         }}
       />
-      <LegalPage title="Terms of Use" updated="October 7, 2026">
+      <LegalPage title="Terms of Service" updated="October 7, 2026">
       <section className="space-y-2">
         <h2 className="text-lg font-semibold text-gray-900">The tool is an estimate</h2>
         <p>The calculator estimates Etsy fees using published rate data. Actual fees on your account may differ due to promotions, category changes, VAT handling, or policy updates. Verify with the official Etsy Fees &amp; Payments Policy before making business decisions.</p>
