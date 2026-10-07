@@ -51,7 +51,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Link href="/terms" className="hover:underline">Terms</Link>
             <Link href="/disclaimer" className="hover:underline">Disclaimer</Link>
           </nav>
-          <p className="mt-2">Contact: hello@fynza.store</p>
+          <p className="mt-2">
+            Contact:{" "}
+            <a
+              href={`mailto:${siteConfig.contactEmail}`}
+              className="underline underline-offset-2"
+            >
+              {siteConfig.contactEmail}
+            </a>
+          </p>
           <p className="mt-1">&copy; 2026 Fynza. All rights reserved.</p>
         </footer>
         <AnalyticsGate />
