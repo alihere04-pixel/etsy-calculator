@@ -116,6 +116,7 @@ export default function MarketPage({
             <tr className="border-b"><td className="py-2">Transaction fee</td><td className="text-right">{r.transaction_fee_percent}%</td></tr>
             <tr className="border-b"><td className="py-2">Payment processing</td><td className="text-right">{r.payment_processing_percent}% + {currencySymbol(r.currency)}{Number.isInteger(r.payment_processing_fixed) ? r.payment_processing_fixed : r.payment_processing_fixed.toFixed(2)}</td></tr>
             <tr className="border-b"><td className="py-2">Regulatory operating fee</td><td className="text-right">{regulatoryDisplay}</td></tr>
+            <tr className="border-b"><td className="py-2">Currency conversion</td><td className="text-right">{r.currency_conversion_percent}% <span className="text-xs text-gray-500">Only applies to cross-currency sales</span></td></tr>
             <tr className="border-b"><td className="py-2">Offsite Ads</td><td className="text-right">{r.offsite_ads_percent}%</td></tr>
           </tbody>
         </table>
