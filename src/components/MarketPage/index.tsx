@@ -112,7 +112,7 @@ export default function MarketPage({
         <h2 className="text-xl font-semibold text-gray-900">Fee Table</h2>
         <table className="mt-4 w-full text-sm">
           <tbody>
-            <tr className="border-b"><td className="py-2">Listing fee</td><td className="text-right">${r.listing_fee}</td></tr>
+            <tr className="border-b"><td className="py-2">Listing fee</td><td className="text-right">{currencySymbol(r.currency)}{r.listing_fee.toFixed(2)}</td></tr>
             <tr className="border-b"><td className="py-2">Transaction fee</td><td className="text-right">{r.transaction_fee_percent}%</td></tr>
             <tr className="border-b"><td className="py-2">Payment processing</td><td className="text-right">{r.payment_processing_percent}% + {currencySymbol(r.currency)}{r.payment_processing_fixed}</td></tr>
             <tr className="border-b"><td className="py-2">Regulatory operating fee</td><td className="text-right">{regulatoryDisplay}</td></tr>
