@@ -33,12 +33,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ConsentBanner />
         <AdSenseScript />
         <header className="border-b border-gray-200 bg-white px-4 py-4">
-          <Link href="/" className="text-xl font-bold text-orange-600">Fynza</Link>
+          <Link href="https://fynza.store" className="text-xl font-bold text-orange-600">Fynza</Link>
           <span className="ml-2 text-gray-600">&mdash; Etsy Fee Calculator</span>
         </header>
         <div className="flex-1">{children}</div>
         <footer className="border-t border-gray-200 bg-white px-4 py-6 text-sm text-gray-600">
           <nav className="flex gap-4">
+            <Link href="https://fynza.store" className="hover:underline">Fynza</Link>
             <Link href="/calculator" className="hover:underline">Calculator</Link>
             <Link href="/faq" className="hover:underline">FAQ</Link>
             <Link href="/blog/etsy-fees-explained-2026" className="hover:underline">Blog</Link>
