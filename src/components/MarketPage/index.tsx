@@ -90,7 +90,7 @@ export default function MarketPage({
       </p>
 
       <section>
-        <Calculator onResult={setResult} />
+        <Calculator onResult={setResult} country={market} />
         <ResultCard result={result} />
         <FeeBreakdown result={result} />
       </section>

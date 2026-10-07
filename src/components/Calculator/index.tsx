@@ -1,23 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { calculateFees, type Input, type Result } from "@/lib/calculation/engine";
+import { calculateFees, currencySymbol, type Input, type Result } from "@/lib/calculation/engine";
+import rates from "@/data/rates/etsy.json";
 
 interface CalculatorProps {
   onResult: (result: Result | null) => void;
+  country?: Input["country"];
 }
 
-export default function Calculator({ onResult }: CalculatorProps) {
+export default function Calculator({ onResult, country: initialCountry = "US" }: CalculatorProps) {
   const [productPrice, setProductPrice] = useState("");
   const [shippingCharged, setShippingCharged] = useState("");
   const [cogs, setCogs] = useState("");
   const [shippingCostPaid, setShippingCostPaid] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [country, setCountry] = useState<Input["country"]>("US");
+  const [country, setCountry] = useState<Input["country"]>(initialCountry);
   const [offsiteAds, setOffsiteAds] = useState<Input["offsiteAds"]>("off");
   const [taxInclusive, setTaxInclusive] = useState(false);
   const [giftWrap, setGiftWrap] = useState("");
   const [error, setError] = useState<string | null>(null);
+
+  const symbol = currencySymbol(rates[country].currency);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -48,19 +52,19 @@ export default function Calculator({ onResult }: CalculatorProps) {
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-4 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
       <div>
-        <label className="block text-sm font-medium text-gray-700">Product price</label>
+        <label className="block text-sm font-medium text-gray-700">Product price ({symbol})</label>
         <input type="number" step="0.01" min="0" value={productPrice} placeholder="0.00" onChange={(e) => setProductPrice(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" required />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Shipping charged to buyer</label>
+        <label className="block text-sm font-medium text-gray-700">Shipping charged to buyer ({symbol})</label>
         <input type="number" step="0.01" min="0" value={shippingCharged} placeholder="0.00" onChange={(e) => setShippingCharged(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">COGS (cost of goods)</label>
+        <label className="block text-sm font-medium text-gray-700">COGS (cost of goods) ({symbol})</label>
         <input type="number" step="0.01" min="0" value={cogs} placeholder="0.00" onChange={(e) => setCogs(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Shipping cost paid by seller</label>
+        <label className="block text-sm font-medium text-gray-700">Shipping cost paid by seller ({symbol})</label>
         <input type="number" step="0.01" min="0" value={shippingCostPaid} placeholder="0.00" onChange={(e) => setShippingCostPaid(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
       </div>
       <div>
@@ -91,7 +95,7 @@ export default function Calculator({ onResult }: CalculatorProps) {
         <label htmlFor="taxInclusive" className="text-sm font-medium text-gray-700">Tax-inclusive price (UK/EU)</label>
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Gift wrap (optional)</label>
+        <label className="block text-sm font-medium text-gray-700">Gift wrap (optional) ({symbol})</label>
         <input type="number" step="0.01" min="0" value={giftWrap} placeholder="0.00" onChange={(e) => setGiftWrap(e.target.value)} className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2" />
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}
