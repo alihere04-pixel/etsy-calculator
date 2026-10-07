@@ -36,9 +36,9 @@ export default function Calculator({ onResult }: CalculatorProps) {
     try {
       const result = calculateFees(input);
       onResult(result);
-    } catch {
+    } catch (e) {
       onResult(null);
-      setError(`Rates coming soon for ${country}.`);
+      setError(e instanceof Error ? e.message : `Rates coming soon for ${country}.`);
     }
   }
 

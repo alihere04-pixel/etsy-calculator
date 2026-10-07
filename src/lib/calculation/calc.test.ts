@@ -105,6 +105,55 @@ describe("calculateProfitMargin", () => {
   });
 });
 
+describe("input validation", () => {
+  it("throws when price = 0", () => {
+    expect(() => calculateFees({ ...baseInput, productPrice: 0 })).toThrow("Price must be greater than 0");
+  });
+
+  it("throws when price is negative", () => {
+    expect(() => calculateFees({ ...baseInput, productPrice: -50 })).toThrow("Price must be greater than 0");
+  });
+
+  it("throws when quantity = 0", () => {
+    expect(() => calculateFees({ ...baseInput, quantity: 0 })).toThrow("Quantity must be at least 1");
+  });
+
+  it("throws when quantity is fractional", () => {
+    expect(() => calculateFees({ ...baseInput, quantity: 2.5 })).toThrow("Quantity must be at least 1");
+  });
+
+  it("throws when cogs is negative", () => {
+    expect(() => calculateFees({ ...baseInput, cogs: -1 })).toThrow("COGS cannot be negative");
+  });
+
+  it("throws when shipping is negative", () => {
+    expect(() => calculateFees({ ...baseInput, shippingCharged: -5 })).toThrow("Shipping cannot be negative");
+    expect(() => calculateFees({ ...baseInput, shippingCostPaid: -5 })).toThrow("Shipping cannot be negative");
+  });
+
+  it("throws when giftWrap is negative", () => {
+    expect(() => calculateFees({ ...baseInput, giftWrap: -1 })).toThrow("Gift wrap cannot be negative");
+  });
+
+  it("throws on NaN / empty fields", () => {
+    expect(() => calculateFees({ ...baseInput, productPrice: NaN })).toThrow("Please enter valid numbers");
+    expect(() => calculateFees({ ...baseInput, quantity: NaN })).toThrow("Please enter valid numbers");
+  });
+
+  it("warns (does not throw) when cogs > price", () => {
+    const r = calculateFees({ ...baseInput, productPrice: 10, cogs: 100 });
+    expect(r.netProfit).toBeLessThan(0);
+    expect(r.warnings).toContain("COGS is higher than price. You will lose money on this sale.");
+  });
+
+  it("valid input works without warnings", () => {
+    const r = calculateFees(baseInput);
+    expect(r.totalFees).toBeGreaterThan(0);
+    expect(r.netProfit).toBeGreaterThan(0);
+    expect(r.warnings).toHaveLength(0);
+  });
+});
+
 describe("SPEC §13 test cases", () => {
   it("1. Simple US sale, Q=1", () => {
     const r = calculateFees(baseInput);

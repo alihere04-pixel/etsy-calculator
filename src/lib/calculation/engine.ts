@@ -56,7 +56,22 @@ export function calculateProfitMargin(netProfit: number, netRevenue: number): nu
  * break-even price, and effective fee rate for a given input.
  * Follows SPEC.md Section 6.
  */
+function validateInput(input: Input): void {
+  const numericFields: (keyof Input)[] = ["productPrice", "shippingCharged", "cogs", "shippingCostPaid", "quantity", "giftWrap"];
+  for (const key of numericFields) {
+    if (typeof input[key] !== "number" || Number.isNaN(input[key] as number)) {
+      throw new Error("Please enter valid numbers");
+    }
+  }
+  if (input.productPrice <= 0) throw new Error("Price must be greater than 0");
+  if (!Number.isInteger(input.quantity) || input.quantity < 1) throw new Error("Quantity must be at least 1");
+  if (input.cogs < 0) throw new Error("COGS cannot be negative");
+  if (input.shippingCharged < 0 || input.shippingCostPaid < 0) throw new Error("Shipping cannot be negative");
+  if (input.giftWrap < 0) throw new Error("Gift wrap cannot be negative");
+}
+
 export function calculateFees(input: Input): Result {
+  validateInput(input);
   const rates = getRates(input.country);
   const P = input.productPrice;
   const S = input.shippingCharged;
@@ -90,6 +105,9 @@ export function calculateFees(input: Input): Result {
 
   // Regulatory operating fee: 0 if rate is null, 0, or "UNVERIFIED" (string)
   const warnings: string[] = [];
+  if (input.cogs > input.productPrice) {
+    warnings.push("COGS is higher than price. You will lose money on this sale.");
+  }
   let regulatoryFee = 0;
   if (rates.regulatory_fee_percent === "UNVERIFIED") {
     warnings.push(
