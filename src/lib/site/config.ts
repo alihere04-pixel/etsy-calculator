@@ -5,6 +5,6 @@ export const siteConfig = {
   // URL prefix for this tool on fynza.store.
   // next.config.ts sets basePath: "/etsy", so routes live under /etsy/*.
   urlPrefix: "/etsy",
-  contactEmail: "hello@fynza.store",
+  contactEmail: "contact@fynza.store",
 } as const;
 

@@ -49,7 +49,7 @@ export default function PrivacyPage() {
       </section>
       <section className="space-y-2">
         <h2 className="text-lg font-semibold text-gray-900">Contact</h2>
-        <p>Questions about this notice? Email hello@fynza.store.</p>
+        <p>Questions about this notice? Email contact@fynza.store.</p>
       </section>
       </LegalPage>
     </>
