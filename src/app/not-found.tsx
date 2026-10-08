@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: "404 — Etsy Fee Calculator",
   description: DESCRIPTION,
   robots: { index: false, follow: false },
-  alternates: { canonical: "https://fynza.store/etsy" },
   openGraph: {
     title: "404 — Etsy Fee Calculator",
     description: DESCRIPTION,
