@@ -46,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Link href="https://fynza.store" className="hover:underline">Fynza</Link>
             <Link href="/calculator" className="hover:underline">Calculator</Link>
             <Link href="/faq" className="hover:underline">FAQ</Link>
-            <Link href="/blog/etsy-fees-explained-2026" className="hover:underline">Blog</Link>
+            <Link href="/blog" className="hover:underline">Blog</Link>
             <Link href="/privacy" className="hover:underline">Privacy</Link>
             <Link href="/terms" className="hover:underline">Terms</Link>
             <Link href="/disclaimer" className="hover:underline">Disclaimer</Link>

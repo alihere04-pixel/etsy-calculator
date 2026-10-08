@@ -42,7 +42,9 @@ export default function EtsyLanding() {
       </nav>
 
       <nav>
-        <h2 className="text-xl font-semibold text-gray-900">Blog</h2>
+        <h2 className="text-xl font-semibold text-gray-900">
+          <Link href="/blog" className="hover:underline">Blog</Link>
+        </h2>
         <ul className="mt-3 list-disc pl-5 text-sm">
           <li><Link href="/blog/etsy-fees-explained-2026" className="text-orange-600 hover:underline">Etsy Fees Explained 2026</Link></li>
           <li><Link href="/blog/how-much-does-etsy-take" className="text-orange-600 hover:underline">How Much Does Etsy Take?</Link></li>
