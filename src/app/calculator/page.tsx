@@ -9,7 +9,7 @@ const URL = "https://fynza.store/etsy/calculator";
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: URL },
+  alternates: { canonical: "https://fynza.store/etsy" },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
