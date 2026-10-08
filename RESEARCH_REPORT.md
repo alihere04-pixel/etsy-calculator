@@ -114,7 +114,7 @@ The following fees exist on Etsy but are **out of scope for MVP** (Phase 2). The
 | UK | 6.5% (incl. VAT) | 4% + 0.20 GBP | 0.48% | GBP |
 | EU | 6.5% (incl. VAT) | 4% + 0.30 EUR | Varies (0.8–1.97%) | EUR |
 | CA | 6.5% (incl. tax) | 3% + 0.25 CAD | 0.50% | CAD |
-| AU | 6.5% (incl. tax) | 3% + 0.25 AUD | None | AUD |
+| AU | 6.5% (incl. tax) | 3% + 0.25 AUD (4% + 0.25 international) | None | AUD |
 | IN | 6.5% (incl. tax) | 5% + 25 INR | 0.05% | INR |
 
 ---

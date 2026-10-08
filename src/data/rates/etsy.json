@@ -54,10 +54,11 @@
     "payment_processing_percent": 3.0,
     "payment_processing_fixed": 0.25,
     "currency": "AUD",
+    "payment_processing_note": "International orders: 4% + A$0.25. Domestic orders: 3% + A$0.25.",
     "offsite_ads_percent": 15,
     "regulatory_fee_percent": 0,
     "currency_conversion_percent": 2.5,
-    "last_updated": "2026-10-06",
+    "last_updated": "2026-10-08",
     "source_name": "Etsy Fees & Payments Policy + Etsy Help Center"
   },
   "IN": {

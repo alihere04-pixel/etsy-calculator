@@ -58,7 +58,7 @@ const marketMeta: Record<
     name: "Australia",
     seller: "an Australian seller",
     faq: [
-      { q: "What payment processing fee do Australian sellers pay?", a: "Australian sellers pay 3% + $0.25 AUD per order." },
+      { q: "What payment processing fee do Australian sellers pay?", a: "Australian sellers pay 3% + $0.25 AUD per order on domestic orders. International orders are charged at 4% + $0.25 AUD." },
       { q: "Is there a regulatory operating fee in Australia?", a: "No. The regulatory operating fee does not apply to AU sellers." },
       { q: "Does the Australia price include GST?", a: "Use the tax-inclusive toggle for GST-inclusive listings." },
     ],
@@ -114,7 +114,9 @@ export default function MarketPage({
           <tbody>
             <tr className="border-b"><td className="py-2">Listing fee</td><td className="text-right">{currencySymbol(r.currency)}{r.listing_fee.toFixed(2)}</td></tr>
             <tr className="border-b"><td className="py-2">Transaction fee</td><td className="text-right">{r.transaction_fee_percent}%</td></tr>
-            <tr className="border-b"><td className="py-2">Payment processing</td><td className="text-right">{r.payment_processing_percent}% + {currencySymbol(r.currency)}{Number.isInteger(r.payment_processing_fixed) ? r.payment_processing_fixed : r.payment_processing_fixed.toFixed(2)}</td></tr>
+            <tr className="border-b"><td className="py-2">Payment processing</td><td className="text-right">{r.payment_processing_percent}% + {currencySymbol(r.currency)}{Number.isInteger(r.payment_processing_fixed) ? r.payment_processing_fixed : r.payment_processing_fixed.toFixed(2)}{"payment_processing_note" in r && r.payment_processing_note ? (
+              <span className="block text-xs font-normal text-gray-500">{r.payment_processing_note as string}</span>
+            ) : null}</td></tr>
             <tr className="border-b"><td className="py-2">Regulatory operating fee</td><td className="text-right">{regulatoryDisplay}</td></tr>
             <tr className="border-b"><td className="py-2">Currency conversion</td><td className="text-right">{r.currency_conversion_percent}% <span className="text-xs text-gray-500">Only applies to cross-currency sales</span></td></tr>
             <tr className="border-b"><td className="py-2">Offsite Ads</td><td className="text-right">{r.offsite_ads_percent}%</td></tr>

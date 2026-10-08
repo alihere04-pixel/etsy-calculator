@@ -26,7 +26,7 @@ const faqs = [
   { q: "How much is the payment processing fee in the UK?", a: "UK sellers pay 4% + £0.20 per order." },
   { q: "How much is the payment processing fee in the EU?", a: "EU sellers pay 4% + €0.30 per order." },
   { q: "How much is the payment processing fee in Canada?", a: "Canadian sellers pay 3% + $0.25 CAD per order." },
-  { q: "How much is the payment processing fee in Australia?", a: "Australian sellers pay 3% + $0.25 AUD per order." },
+  { q: "How much is the payment processing fee in Australia?", a: "Australian sellers pay 3% + $0.25 AUD per order on domestic orders, and 4% + $0.25 AUD on international orders." },
   { q: "How much is the payment processing fee in India?", a: "Indian sellers pay 5% + ₹25 per order." },
   { q: "What is the regulatory operating fee?", a: "A country-specific fee charged in several markets, e.g. UK 0.48%, Canada 0.50%, Spain 0.88%." },
   { q: "What are Offsite Ads fees?", a: "Offsite Ads charge 15% (under $10K/yr) or 12% (over $10K/yr), capped at $100 per order." },

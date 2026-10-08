@@ -3,6 +3,8 @@ export interface CountryRates {
   transaction_fee_percent: number | null;
   payment_processing_percent: number | null;
   payment_processing_fixed: number | null;
+  /** Published second tier, e.g. Etsy AU/CA/NZ international orders. */
+  payment_processing_note?: string;
   currency: string;
   offsite_ads_percent: number | null;
   regulatory_fee_percent: number | string | null;
