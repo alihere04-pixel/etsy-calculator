@@ -119,7 +119,9 @@ export default function MarketPage({
             ) : null}</td></tr>
             <tr className="border-b"><td className="py-2">Regulatory operating fee</td><td className="text-right">{regulatoryDisplay}</td></tr>
             <tr className="border-b"><td className="py-2">Currency conversion</td><td className="text-right">{r.currency_conversion_percent}% <span className="text-xs text-gray-500">Only applies to cross-currency sales</span></td></tr>
-            <tr className="border-b"><td className="py-2">Offsite Ads</td><td className="text-right">{r.offsite_ads_percent}%</td></tr>
+            <tr className="border-b"><td className="py-2">Offsite Ads</td><td className="text-right">{r.offsite_ads_percent}%{"offsite_ads_note" in r && r.offsite_ads_note ? (
+              <span className="block text-xs font-normal text-gray-500">{r.offsite_ads_note as string}</span>
+            ) : null}</td></tr>
           </tbody>
         </table>
         {typeof r.regulatory_fee_percent !== "number" && "regulatory_fee_note" in r && r.regulatory_fee_note ? (

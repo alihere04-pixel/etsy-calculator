@@ -7,6 +7,8 @@ export interface CountryRates {
   payment_processing_note?: string;
   currency: string;
   offsite_ads_percent: number | null;
+  /** The 15% / 12% tiers and the per-order cap behind `offsite_ads_percent`. */
+  offsite_ads_note?: string;
   regulatory_fee_percent: number | string | null;
   regulatory_fee_note?: string;
   currency_conversion_percent: number | null;
