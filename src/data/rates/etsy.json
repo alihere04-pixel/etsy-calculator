@@ -18,9 +18,9 @@
     "payment_processing_fixed": 0.20,
     "currency": "GBP",
     "offsite_ads_percent": 15,
-    "regulatory_fee_percent": 0.32,
+    "regulatory_fee_percent": 0.48,
     "currency_conversion_percent": 2.5,
-    "last_updated": "2026-10-06",
+    "last_updated": "2026-10-08",
     "source_name": "Etsy Fees & Payments Policy + Etsy Help Center"
   },
   "EU": {

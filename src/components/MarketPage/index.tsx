@@ -29,7 +29,7 @@ const marketMeta: Record<
     seller: "a UK seller",
     faq: [
       { q: "What payment processing fee do UK sellers pay?", a: "UK sellers pay 4% + £0.20 per order." },
-      { q: "What is the UK regulatory operating fee?", a: "It is 0.32% of the sale total." },
+      { q: "What is the UK regulatory operating fee?", a: "It is 0.48% of the sale total." },
       { q: "Does the UK price include VAT?", a: "Yes, use the tax-inclusive toggle for UK listings." },
     ],
   },

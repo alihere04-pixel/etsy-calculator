@@ -27,7 +27,7 @@ vi.mock("../../data/rates/etsy.json", () => ({
       payment_processing_fixed: 0.2,
       currency: "GBP",
       offsite_ads_percent: 15,
-      regulatory_fee_percent: 0.32,
+      regulatory_fee_percent: 0.48,
       currency_conversion_percent: 2.5,
       last_updated: "2026-10-06",
       source_name: "Test Fixture",
@@ -207,8 +207,8 @@ describe("SPEC §13 test cases", () => {
     });
     expect(r.transactionFee).toBeCloseTo(0.065 * 50);
     expect(r.paymentProcessingFee).toBeCloseTo(0.04 * 50 + 0.2);
-    expect(r.regulatoryFee).toBeCloseTo(0.0032 * 50);
-    expect(r.totalFees).toBeCloseTo(0.2 + 3.25 + 2.2 + 0.16);
+    expect(r.regulatoryFee).toBeCloseTo(0.0048 * 50);
+    expect(r.totalFees).toBeCloseTo(0.2 + 3.25 + 2.2 + 0.24);
   });
 
   it("5. Offsite Ads triggered, under $100 cap", () => {

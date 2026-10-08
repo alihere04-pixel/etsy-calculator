@@ -50,7 +50,7 @@ MVP Decision: US, UK, EU, CA, AU, IN rates to be filled before Phase 2 (Developm
 
 | Country | Rate | Applied To |
 |---------|------|------------|
-| United Kingdom | 0.32% | Item + shipping + gift wrap |
+| United Kingdom | 0.48% | Item + shipping + gift wrap |
 | Canada | 0.50% | Item + shipping + gift wrap |
 | India | 0.05% | Item + shipping + gift wrap |
 | Italy | 0.80% | Item + shipping + gift wrap |
@@ -111,7 +111,7 @@ The following fees exist on Etsy but are **out of scope for MVP** (Phase 2). The
 | Region | Transaction Fee | Payment Processing | Regulatory Fee | Currency |
 |--------|-----------------|-------------------|----------------|----------|
 | US | 6.5% (excl. tax) | 3% + $0.25 | None | USD |
-| UK | 6.5% (incl. VAT) | 4% + 0.20 GBP | 0.32% | GBP |
+| UK | 6.5% (incl. VAT) | 4% + 0.20 GBP | 0.48% | GBP |
 | EU | 6.5% (incl. VAT) | 4% + 0.30 EUR | Varies (0.8–1.97%) | EUR |
 | CA | 6.5% (incl. tax) | 3% + 0.25 CAD | 0.50% | CAD |
 | AU | 6.5% (incl. tax) | 3% + 0.25 AUD | None | AUD |
