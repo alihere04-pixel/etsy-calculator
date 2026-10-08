@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: fm.title,
     description: fm.description,
     alternates: { canonical: `https://fynza.store/etsy/blog/${slug}` },
+    robots: { index: true, follow: true },
     openGraph: {
       title: fm.title,
       description: fm.description,

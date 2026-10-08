@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Etsy Fee & Profit Calculator",
   description: "Free Etsy fee and profit calculator for sellers in the US, UK, EU, CA, AU and IN.",
   alternates: { canonical: "https://fynza.store/etsy" },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Etsy Fee & Profit Calculator",
     description: "Free Etsy fee and profit calculator for sellers in the US, UK, EU, CA, AU and IN.",

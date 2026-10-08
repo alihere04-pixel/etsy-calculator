@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Etsy Fees FAQ (2026)",
   description: "Common questions about Etsy fees, transaction fees, payment processing, regulatory fees and Offsite Ads.",
   alternates: { canonical: "https://fynza.store/etsy/faq" },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Etsy Fees FAQ (2026)",
     description: "Common questions about Etsy fees, transaction fees, payment processing, regulatory fees and Offsite Ads.",

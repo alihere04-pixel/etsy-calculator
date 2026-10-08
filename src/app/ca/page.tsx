@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Etsy Fee Calculator for Canada Sellers (2026)",
   description: "Calculate your Etsy fees, net profit, and break-even price as a Canadian seller in 2026.",
   alternates: { canonical: "https://fynza.store/etsy/ca" },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Etsy Fee Calculator for Canada Sellers (2026)",
     description: "Calculate your Etsy fees, net profit, and break-even price as a Canadian seller in 2026.",

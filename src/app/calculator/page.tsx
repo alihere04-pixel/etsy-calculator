@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: "https://fynza.store/etsy" },
+  robots: { index: true, follow: true },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
