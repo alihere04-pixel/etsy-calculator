@@ -1,8 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const DESCRIPTION =
+  "The page you're looking for doesn't exist. Try the Etsy Fee Calculator or browse the fee guides instead.";
+
 export const metadata: Metadata = {
   title: "404 — Etsy Fee Calculator",
+  description: DESCRIPTION,
+  robots: { index: false, follow: false },
+  alternates: { canonical: "https://fynza.store/etsy" },
+  openGraph: {
+    title: "404 — Etsy Fee Calculator",
+    description: DESCRIPTION,
+    url: "https://fynza.store/etsy",
+    siteName: "Fynza",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "404 — Etsy Fee Calculator",
+    description: DESCRIPTION,
+  },
 };
 
 export default function NotFound() {
